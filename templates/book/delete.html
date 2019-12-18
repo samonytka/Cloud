@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Do you really want to delete book {{ book.name }}</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for("do_delete") }}" method="post" novalidate>
+                {{ form.hidden_tag() }}
+
+                {% for error in form.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+
+                <div class="form-group row justify-content-center">
+                    <div class="col-1">
+                        {{ form.submit(class_="btn btn-lg btn-danger") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

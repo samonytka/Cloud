@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Update plant</h5>
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for("do_update") }}" method="post" novalidate>
+                {{ form.hidden_tag() }}
+
+                <div class="form-group row">
+                    {{ form.name.label(class_="col-4") }}
+                    {{ form.name(size=32, class_="form-control col-8") }}
+                </div>
+                <div class="form-group row">
+                    {{ form.author.label(class_="col-4") }}
+                    {{ form.author(class_="form-control col-8") }}
+                </div>
+                <div class="form-group row">
+                    {{ form.pages_number.label(class_="col-4") }}
+                    {{ form.pages_number(class_="form-control col-8") }}
+                </div>
+                {% for error in form.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+
+                <div class="form-group row justify-content-end">
+                    <div class="col-1">
+                        {{ form.submit(class_="btn btn-primary") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
