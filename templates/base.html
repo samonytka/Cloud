@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark ">
-        <a class="navbar-brand" href="#"><a href="{{ url_for("books") }}">Home Library</a>
+        <a class="navbar-brand" href="#"><a href="{{ url_for("books") }}">My Home Library</a>
         {% if not current_user.is_authenticated %}
             <ul class="navbar-nav">
                 <li class="nav-item">
